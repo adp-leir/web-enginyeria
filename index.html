@@ -1,13 +1,152 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ca">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>web-enginyeria</title>
+    <title>ENGIX | Enginyeria d’Instal·lacions Andorra</title>
+    <style>
+      /* Estils per a la nova secció de Projectes */
+      .project-item {
+        margin-bottom: 25pt;
+        padding: 20px;
+        background-color: #f4fdf4;
+        border-radius: 8px;
+      }
+      .project-tag {
+        display: inline-block;
+        background: #28e100;
+        color: #000;
+        padding: 2pt 8pt;
+        font-size: 9pt;
+        font-weight: bold;
+        margin-bottom: 8pt;
+        text-transform: uppercase;
+      }
+      .math {
+        font-family: 'Times New Roman', serif;
+        font-style: italic;
+        font-weight: bold;
+        color: #1ea600;
+      }
+      .project-img-placeholder {
+        font-style: italic;
+        font-size: 9pt;
+        margin-top: 10pt;
+        color: #888;
+        border: 1px dashed #ccc;
+        padding: 40px;
+        text-align: center;
+        background: #fff;
+      }
+    </style>
   </head>
   <body>
-    <div id="app"></div>
+    <header>
+      <nav>
+        <div class="logo">ENG<span>IX</span></div>
+        <ul>
+          <li><a href="#home">Inici</a></li>
+          <li><a href="#serveis">Serveis</a></li>
+          <li><a href="#projectes">Projectes</a></li>
+          <li><a href="#empresa">L'Empresa</a></li>
+          <li><a href="#contacto" class="btn-nav">Contacte</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="home" class="hero">
+      <div id="particle-canvas"></div>
+      <div class="hero-overlay">
+        <div class="hero-content">
+          <h1>Enginyeria d'Instal·lacions <br><span>a Andorra</span></h1>
+          <p>Especialistes en Energies Renovables i projectes integrals d'enginyeria.</p>
+          <a href="#serveis" class="btn-main">Els nostres serveis</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="serveis" class="services">
+      <div class="container">
+        <h2>Serveis d'Enginyeria</h2>
+        <div class="grid">
+          <div class="card">
+            <div class="icon">🏗️</div>
+            <h3>Enginyeria Civil</h3>
+            <p>Disseny i supervisió d'obres hidràuliques, viàries i estructures complexes, optimitzant recursos mitjançant càlculs d'eficiència on <span class="math">S = F / A</span> defineix la nostra precisió.[cite: 1, 2]</p>
+          </div>
+          <div class="card">
+            <div class="icon">🌿</div>
+            <h3>Energia i Sostenibilitat</h3>
+            <p>Consultoria tècnica per a projectes d'energies renovables, xarxes elèctriques i optimització energètica en edificis industrials.[cite: 1, 2]</p>
+          </div>
+          <div class="card">
+            <div class="icon">📋</div>
+            <h3>Gestió de Projectes</h3>
+            <p>Control integral des de la fase de concepció fins a l'entrega final (Project Management), garantint terminis i pressupostos estrictes.[cite: 1, 2]</p>
+          </div>
+          <div class="card">
+            <div class="icon">⚡</div>
+            <h3>Legalitzacions</h3>
+            <p>Projectes elèctrics, fibra òptica i seguretat contra incendis per a tot tipus de sectors.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projectes" class="projects">
+      <div class="container">
+        <h2>Projectes Destacats</h2>
+        
+        <div class="project-item">
+          <div class="project-tag">Infraestructura Hídrica</div>
+          <h4>Projecte CG-2: Canalització en Bordes de L'Aldosa</h4>
+          <p>Un desafiament d'enginyeria en terreny muntanyós. Implementació de sistemes de drenatge avançat i murs de contenció integrats en el paisatge natural d'Andorra.[cite: 1, 2]</p>
+          <div class="project-img-placeholder">[Imatge: Paisatge de muntanya amb obra civil integrada]</div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-tag">Urbanisme</div>
+          <h4>Reurbanització Centre Logístic Engix</h4>
+          <p>Disseny d'accessos i pavimentació industrial amb alta resistència. Capacitat de càrrega calculada mitjançant <span class="math">P = m &times; g</span> per assegurar la durabilitat del ferm.[cite: 1, 2]</p>
+          <div class="project-img-placeholder">[Imatge: Edifici modern d'oficines amb pàrquing d'asfalt polit]</div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-tag">Sostenibilitat</div>
+          <h4>Parc Solar Fotovoltaic "Llum de Muntanya"</h4>
+          <p>Instal·lació tècnica de panells sobre terreny irregular, maximitzant la captació solar en zones d'ombra projectada.[cite: 1, 2]</p>
+          <div class="project-img-placeholder">[Imatge: Pendent verd amb panells solars moderns]</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="empresa" class="about">
+      <div class="container">
+        <div class="about-flex">
+          <div class="about-text">
+            <h2>Sobre ENGIX</h2>
+            <p>Creada a Andorra l’any 2024, <strong>ENGIX</strong> és una enginyeria formada per un equip jove i dinàmic. Desenvolupem solucions tècniques de qualsevol tipus en tots els sectors del país, des d'habitatges fins a grans indústries.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contacto">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-info">
+            <h3>Contacte</h3>
+            <p>📍 Av. de Sant Antoni 49, Baixos<br>AD400 La Massana</p>
+            <p>📞 (+376) 73 80 70</p>
+            <p>✉️ administracio@engix.ad</p>
+          </div>
+          <div class="footer-copy">
+            <p>&copy; 2024 ENGIX - Enginyeria d’Instal·lacions</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
