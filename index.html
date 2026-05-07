@@ -1,152 +1,225 @@
 <!DOCTYPE html>
 <html lang="ca">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ENGIX | Enginyeria d’Instal·lacions Andorra</title>
-    <style>
-      /* Estils per a la nova secció de Projectes */
-      .project-item {
-        margin-bottom: 25pt;
-        padding: 20px;
-        background-color: #f4fdf4;
-        border-radius: 8px;
-      }
-      .project-tag {
-        display: inline-block;
-        background: #28e100;
-        color: #000;
-        padding: 2pt 8pt;
-        font-size: 9pt;
-        font-weight: bold;
-        margin-bottom: 8pt;
-        text-transform: uppercase;
-      }
-      .math {
-        font-family: 'Times New Roman', serif;
-        font-style: italic;
-        font-weight: bold;
-        color: #1ea600;
-      }
-      .project-img-placeholder {
-        font-style: italic;
-        font-size: 9pt;
-        margin-top: 10pt;
-        color: #888;
-        border: 1px dashed #ccc;
-        padding: 40px;
-        text-align: center;
-        background: #fff;
-      }
-    </style>
-  </head>
-  <body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
     <header>
-      <nav>
-        <div class="logo">ENG<span>IX</span></div>
-        <ul>
-          <li><a href="#home">Inici</a></li>
-          <li><a href="#serveis">Serveis</a></li>
-          <li><a href="#projectes">Projectes</a></li>
-          <li><a href="#empresa">L'Empresa</a></li>
-          <li><a href="#contacto" class="btn-nav">Contacte</a></li>
-        </ul>
-      </nav>
+        <nav>
+            <div class="logo">ENG<span>IX</span></div>
+            <ul>
+                <ul>
+    <li><a href="#home" class="codedText">Inici</a></li>
+    <li><a href="#serveis" class="codedText">Serveis</a></li>
+    <li><a href="#projectes" class="codedText">Projectes</a></li>
+    <li><a href="#empresa" class="codedText">L'Empresa</a></li>
+    <li><a href="#contacto" class="btn-nav codedText">Contacte</a></li>
+</ul>
+            </ul>
+        </nav>
     </header>
 
-    <section id="home" class="hero">
-      <div id="particle-canvas"></div>
-      <div class="hero-overlay">
-        <div class="hero-content">
-          <h1>Enginyeria d'Instal·lacions <br><span>a Andorra</span></h1>
-          <p>Especialistes en Energies Renovables i projectes integrals d'enginyeria.</p>
-          <a href="#serveis" class="btn-main">Els nostres serveis</a>
-        </div>
-      </div>
-    </section>
+    <main>
+        <section id="home" class="hero">
+            <div id="particle-canvas"></div>
+            <div class="hero-overlay">
+                <div class="hero-content">
+                    <h1>Enginyeria d'Instal·lacions <br><span>a Andorra</span></h1>
+                    <p>Especialistes en Energies Renovables i projectes integrals d'enginyeria.</p>
+                    <a href="#serveis" class="btn-main">Els nostres serveis</a>
+                </div>
+            </div>
+        </section>
 
-    <section id="serveis" class="services">
-      <div class="container">
-        <h2>Serveis d'Enginyeria</h2>
-        <div class="grid">
-          <div class="card">
-            <div class="icon">🏗️</div>
-            <h3>Enginyeria Civil</h3>
-            <p>Disseny i supervisió d'obres hidràuliques, viàries i estructures complexes, optimitzant recursos mitjançant càlculs d'eficiència on <span class="math">S = F / A</span> defineix la nostra precisió.[cite: 1, 2]</p>
-          </div>
-          <div class="card">
-            <div class="icon">🌿</div>
-            <h3>Energia i Sostenibilitat</h3>
-            <p>Consultoria tècnica per a projectes d'energies renovables, xarxes elèctriques i optimització energètica en edificis industrials.[cite: 1, 2]</p>
-          </div>
-          <div class="card">
-            <div class="icon">📋</div>
-            <h3>Gestió de Projectes</h3>
-            <p>Control integral des de la fase de concepció fins a l'entrega final (Project Management), garantint terminis i pressupostos estrictes.[cite: 1, 2]</p>
-          </div>
-          <div class="card">
-            <div class="icon">⚡</div>
-            <h3>Legalitzacions</h3>
-            <p>Projectes elèctrics, fibra òptica i seguretat contra incendis per a tot tipus de sectors.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+        <section id="serveis" class="services">
+            <div class="container">
+                <h2 class="section-title-modern">Serveis de <span>Enginyeria</span></h2>
+                <div class="grid-single-column">
+                    <div class="card">
+                        <div class="icon">🏗️</div>
+                        <div class="card-text">
+                            <h3>Enginyeria Civil</h3>
+                            <p>Disseny i supervisió d'obres hidràuliques, viàries i estructures complexes, optimitzant recursos mitjançant càlculs d'eficiència on <span class="math">S = F / A</span> defineix la nostra precisió.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="icon">🌿</div>
+                        <div class="card-text">
+                            <h3>Energia i Sostenibilitat</h3>
+                            <p>Consultoria tècnica per a projectes d'energies renovables, xarxes elèctriques i optimització energètica en edificis industrials.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="icon">📋</div>
+                        <div class="card-text">
+                            <h3>Gestió de Projectes</h3>
+                            <p>Control integral des de la fase de concepció fins a l'entrega final (Project Management), garantint terminis i pressupostos estrictes.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="icon">⚡</div>
+                        <div class="card-text">
+                            <h3>Legalitzacions</h3>
+                            <p>Projectes elèctrics, fibra òptica i seguretat contra incendis per a tot tipus de sectors.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <section id="projectes" class="projects">
-      <div class="container">
-        <h2>Projectes Destacats</h2>
-        
-        <div class="project-item">
-          <div class="project-tag">Infraestructura Hídrica</div>
-          <h4>Projecte CG-2: Canalització en Bordes de L'Aldosa</h4>
-          <p>Un desafiament d'enginyeria en terreny muntanyós. Implementació de sistemes de drenatge avançat i murs de contenció integrats en el paisatge natural d'Andorra.[cite: 1, 2]</p>
-          <div class="project-img-placeholder">[Imatge: Paisatge de muntanya amb obra civil integrada]</div>
+        <section id="projectes" class="projects-slider-section">
+            <div class="container">
+                <h2 class="section-title-modern">Projectes <span>Destacats</span></h2>
+            </div>
+            <div id="project-app"></div>
+        </section>
+
+        <section class="logo-slider-white">
+            <div class="logo-track">
+                <div class="logo-slide"><span>PROJECTES 2024</span></div>
+                <div class="logo-slide"><span>INNOVACIÓ</span></div>
+                <div class="logo-slide"><span>SOSTENIBILITAT</span></div>
+                <div class="logo-slide"><span>ANDORRA</span></div>
+                <div class="logo-slide"><span>ENGIX TÈCNICS</span></div>
+                <div class="logo-slide"><span>PROJECTES 2024</span></div>
+                <div class="logo-slide"><span>INNOVACIÓ</span></div>
+                <div class="logo-slide"><span>SOSTENIBILITAT</span></div>
+                <div class="logo-slide"><span>ANDORRA</span></div>
+                <div class="logo-slide"><span>ENGIX TÈCNICS</span></div>
+            </div>
+        </section>
+
+        <section id="empresa" class="intro-section">
+            <h1 class="intro-heading">Sobre <span>ENGIX</span></h1>
+            <p>L'evolució de l'enginyeria a les valls d'Andorra.</p>
+        </section>
+
+       <section class="content-section" data-scroll>
+    <figure class="figure">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200" />
+    </figure>
+    <div class="content">
+        <div class="content-header">
+            <div class="subheading">La Nostra Visió</div>
+            <h2 class="heading">Més que càlculs, <br />creem futur.</h2>
+        </div>
+        <p class="paragraph">
+            A ENGIX no només dissenyem instal·lacions; transformem la complexitat tècnica en solucions eficients. Som una enginyeria jove amb la missió de modernitzar les infraestructures del Principat.
+        </p>
+    </div>
+</section>
+
+<section class="content-section" data-scroll>
+    <figure class="figure">
+        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=1200" />
+    </figure>
+    <div class="content">
+        <div class="content-header">
+            <div class="subheading">Tecnologia d'Avantguarda</div>
+            <h2 class="heading">Precisió digital <br />en cada detall.</h2>
+        </div>
+        <p class="paragraph">
+            Utilitzem les eines de modelatge i simulació més avançades del mercat. Des de l'estudi tèrmic més detallat fins a la gestió de xarxes elèctriques intel·ligents.
+        </p>
+    </div>
+</section>
+
+<section class="content-section" data-scroll>
+    <figure class="figure">
+        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=1200" />
+    </figure>
+    <div class="content">
+        <div class="content-header">
+            <div class="subheading">Compromís verd</div>
+            <h2 class="heading">Energies renovables <br />per a un nou Andorra.</h2>
+        </div>
+        <p class="paragraph">
+            L'eficiència energètica és el nostre pilar. Dissenyem sistemes fotovoltaics i d'aerotèrmia que redueixen l'impacte ambiental i optimitzen el consum dels nostres clients.
+        </p>
+    </div>
+</section>
+    </main>
+
+    <section class="partners-slider">
+    <div class="container">
+        <h2 class="section-title-small">Col·laborem amb els millors</h2>
+        <div class="logos-wrapper">
+            <div class="logos-track">
+                <div class="logos-group">
+                    <i class="fab fa-js"></i>
+                    <i class="fab fa-linkedin-in"></i>
+                    <i class="fab fa-dribbble"></i>
+                    <i class="fab fa-medium-m"></i>
+                    <i class="fab fa-github"></i>
+                </div>
+                <div class="logos-group">
+                    <i class="fab fa-js"></i>
+                    <i class="fab fa-linkedin-in"></i>
+                    <i class="fab fa-dribbble"></i>
+                    <i class="fab fa-medium-m"></i>
+                    <i class="fab fa-github"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <footer class="footer">
+    <div class="bubbles">
+        <div class="bubble" style="--size:3rem; --distance:8rem; --position:15%; --time:3s; --delay:-1s;"></div>
+        <div class="bubble" style="--size:2rem; --distance:6rem; --position:30%; --time:4s; --delay:-2s;"></div>
+        <div class="bubble" style="--size:4rem; --distance:9rem; --position:50%; --time:2s; --delay:-3s;"></div>
+        <div class="bubble" style="--size:3rem; --distance:7rem; --position:70%; --time:3.5s; --delay:-1.5s;"></div>
+        <div class="bubble" style="--size:2.5rem; --distance:8rem; --position:85%; --time:3s; --delay:-4s;"></div>
         </div>
 
-        <div class="project-item">
-          <div class="project-tag">Urbanisme</div>
-          <h4>Reurbanització Centre Logístic Engix</h4>
-          <p>Disseny d'accessos i pavimentació industrial amb alta resistència. Capacitat de càrrega calculada mitjançant <span class="math">P = m &times; g</span> per assegurar la durabilitat del ferm.[cite: 1, 2]</p>
-          <div class="project-img-placeholder">[Imatge: Edifici modern d'oficines amb pàrquing d'asfalt polit]</div>
+    <div class="footer-content">
+        <div class="footer-sections">
+            <div>
+                <b>ENGIX</b>
+                <a href="#inici">Inici</a>
+                <a href="#serveis">Serveis</a>
+                <a href="#projectes">Projectes</a>
+            </div>
+            <div>
+                <b>Contacte</b>
+                <p>Av. de Sant Antoni 49</p>
+                <p>AD400 La Massana</p>
+                <p>(+376) 73 80 70</p>
+            </div>
         </div>
-
-        <div class="project-item">
-          <div class="project-tag">Sostenibilitat</div>
-          <h4>Parc Solar Fotovoltaic "Llum de Muntanya"</h4>
-          <p>Instal·lació tècnica de panells sobre terreny irregular, maximitzant la captació solar en zones d'ombra projectada.[cite: 1, 2]</p>
-          <div class="project-img-placeholder">[Imatge: Pendent verd amb panells solars moderns]</div>
+        <div class="footer-bottom">
+            <p>© 2024 ENGIX Enginyeria - Andorra</p>
         </div>
-      </div>
-    </section>
+    </div>
+</footer>
 
-    <section id="empresa" class="about">
-      <div class="container">
-        <div class="about-flex">
-          <div class="about-text">
-            <h2>Sobre ENGIX</h2>
-            <p>Creada a Andorra l’any 2024, <strong>ENGIX</strong> és una enginyeria formada per un equip jove i dinàmic. Desenvolupem solucions tècniques de qualsevol tipus en tots els sectors del país, des d'habitatges fins a grans indústries.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+<svg style="position:fixed; top:100vh">
+    <defs>
+        <filter id="blob">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="blob"></feColorMatrix>
+        </filter>
+    </defs>
+</svg>
 
-    <footer id="contacto">
-      <div class="container">
-        <div class="footer-grid">
-          <div class="footer-info">
-            <h3>Contacte</h3>
-            <p>📍 Av. de Sant Antoni 49, Baixos<br>AD400 La Massana</p>
-            <p>📞 (+376) 73 80 70</p>
-            <p>✉️ administracio@engix.ad</p>
-          </div>
-          <div class="footer-copy">
-            <p>&copy; 2024 ENGIX - Enginyeria d’Instal·lacions</p>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <script src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
+    <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+    <script>
+        ScrollOut({
+            cssProps: {
+                visibleY: true,
+                viewportY: true
+            }
+        });
+        Splitting({ target: '.heading' });
+    </script>
 
-    <script type="module" src="/src/main.js"></script>
-  </body>
+    <script type="module" src="/src/main.jsx"></script>
+</body>
 </html>

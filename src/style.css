@@ -1,127 +1,771 @@
+/* --- VARIABLES I CONFIGURACIÓ BASE --- */
 :root {
-  --primary: #28e100; /* El verde de ENGIX */
-  --dark: #0a0a0a;    
+  --primary: #28e100; /* Verd ENGIX */
+  --dark: #0a0a0a;    /* Negre fons */
   --light: #ffffff;
-  --gray: #f8f9fa;
+  --gray: #1a1a1a;    /* Gris fosc per contrast */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background: var(--light);
-  color: #333;
+  background: var(--dark);
+  color: #eee;
   line-height: 1.6;
+  overflow-x: hidden;
+  margin-top: 70px;
 }
 
-.container { padding: 0 10%; }
+/* --- CONTENIDORS --- */
+.container {
+  width: 100%;
+  max-width: 1000px; /* Reduït una mica per la columna única */
+  margin: 0 auto;
+  padding: 0 5%;
+}
 
-/* NAVBAR */
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 10%;
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  z-index: 1000;
+/* --- TÍTOLS --- */
+/* --- TÍTOLS MODERNS UNIFICATS (Blanc + Verd) --- */
+.section-title-modern {
+  font-size: clamp(2.5rem, 6vw, 4rem); /* Mida dinàmica segons pantalla */
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff; /* Primera part en blanc */
+  margin-bottom: 3rem;
+  padding-top: 5rem;
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+.section-title-modern span {
+  color: var(--primary); /* Segona part (dins del span) en verd */
+}
+
+/* Ajust per a la secció intro-section per no duplicar marges */
+.intro-section .section-title-modern {
+  padding-top: 0;
+  margin-bottom: 1rem;
+}
+
+.intro-section p {
+  color: #888;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* --- NAVBAR --- */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99999; /* Forcem que estigui per sobre de tot */
+    background-color: #0a0a0a !important; /* Color negre sòlid, sense transparències */
+    border-bottom: 1px solid rgba(40, 225, 0, 0.2);
+    padding: 10px 0;
+}
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    background: transparent; /* El color ja el dóna el header */
 }
 .logo { font-weight: 900; font-size: 1.8rem; color: white; letter-spacing: -1px; }
 .logo span { color: var(--primary); }
-
-nav ul { display: flex; list-style: none; gap: 2.5rem; margin: 0; padding: 0; }
+nav ul { display: flex; list-style: none; gap: 2.5rem; }
 nav a { text-decoration: none; color: white; font-weight: 500; font-size: 0.9rem; text-transform: uppercase; transition: 0.3s; }
 nav a:hover { color: var(--primary); }
 
-/* HERO */
-.hero {
-  height: 100vh;
-  background: var(--dark);
-  position: relative;
-  overflow: hidden;
-}
-
-#particle-canvas {
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  z-index: 1;
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  display: flex;
-  align-items: center;
-  z-index: 100;
-  pointer-events: none;
-}
-
-.hero-content { 
-  max-width: 800px; 
-  padding-left: 10%;
-  color: white;
-  pointer-events: auto;
-}
-
-h1 { 
-  font-size: clamp(2.5rem, 6vw, 4.5rem); 
-  line-height: 1; 
-  margin-bottom: 1.5rem;
-  font-weight: 800;
-}
+/* --- HERO --- */
+.hero { height: 100vh; background: var(--dark); position: relative; overflow: hidden; }
+#particle-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+.hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; z-index: 100; pointer-events: none; }
+.hero-content { max-width: 800px; padding-left: 10%; color: white; pointer-events: auto; }
+h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 1.5rem; font-weight: 800; }
 h1 span { color: var(--primary); }
+.btn-main { background: var(--primary); color: black; padding: 1rem 2rem; text-decoration: none; font-weight: 700; border-radius: 2px; transition: 0.3s; display: inline-block; }
 
-p.hero-p { font-size: 1.4rem; opacity: 0.9; margin-bottom: 2.5rem; }
+/* --- SECCIÓ SERVEIS (Una sola columna) --- */
+.services { background: var(--dark); padding-bottom: 5rem; }
 
-.btn-main {
-  background: var(--primary);
-  color: black;
-  padding: 1rem 2rem;
-  text-decoration: none;
-  font-weight: 700;
-  border-radius: 2px;
-  transition: 0.3s;
-}
-
-/* SERVEIS */
-.services { padding: 8rem 0; background: var(--gray); }
-.services h2 { text-align: center; font-size: 2.5rem; margin-bottom: 4rem; }
-
-.grid { 
-  display: grid; 
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-  gap: 2rem; 
+.grid-single-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .card { 
-  background: white;
-  padding: 3rem 2rem; 
+  background: #111; 
+  padding: 2.5rem; 
   border-radius: 4px; 
-  transition: 0.4s;
-  border-bottom: 4px solid transparent;
-}
-.card:hover { 
-  transform: translateY(-10px); 
-  border-color: var(--primary);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.05); 
-}
-.card h3 { margin: 1.5rem 0 1rem; }
-.icon { font-size: 2.5rem; }
-
-/* ABOUT & FOOTER */
-.about { padding: 8rem 0; }
-.about-text { max-width: 700px; margin: 0 auto; text-align: center; }
-
-footer { 
-  background: var(--dark); 
-  color: white; 
-  padding: 5rem 0 2rem; 
-}
-.footer-grid { 
-  display: flex; 
-  justify-content: space-between; 
-  align-items: flex-end;
-  flex-wrap: wrap;
+  display: flex; /* Alineem icona i text de costat */
+  align-items: center;
   gap: 2rem;
+  transition: 0.4s;
+  border: 1px solid #222;
+  border-left: 4px solid transparent; /* Canvi de posició del detall verd */
 }
-.footer-info h3 { color: var(--primary); margin-bottom: 1.5rem; }
-.footer-copy { width: 100%; border-top: 1px solid #222; margin-top: 3rem; padding-top: 2rem; opacity: 0.5; font-size: 0.8rem; }
+
+.card:hover { 
+  transform: translateX(10px); 
+  border-left-color: var(--primary);
+  box-shadow: 0 10px 30px rgba(40, 225, 0, 0.05); 
+}
+
+.card h3 { color: var(--primary); margin-bottom: 0.5rem; font-size: 1.5rem; }
+.icon { font-size: 3rem; min-width: 60px; text-align: center; }
+.math { color: var(--primary); font-weight: bold; }
+
+/* --- SLIDER PROJECTES --- */
+.projects-slider-section { position: relative; width: 100%; background: var(--dark); padding-bottom: 5rem; overflow: hidden; }
+.slider-wrapper { position: relative; width: 100%; height: 600px; margin-top: 2rem; }
+.item { width: 200px; height: 300px; list-style-type: none; position: absolute; top: 50%; transform: translateY(-50%); z-index: 1; background-position: center; background-size: cover; border-radius: 20px; transition: 0.75s; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+.item:nth-child(1), .item:nth-child(2) { left: 0; top: 0; width: 100%; height: 100%; transform: none; border-radius: 0; opacity: 1; }
+.item:nth-child(3) { left: 50%; }
+.item:nth-child(4) { left: calc(50% + 220px); }
+.item:nth-child(5) { left: calc(50% + 440px); }
+.item:nth-child(n+6) { left: calc(50% + 660px); opacity: 0; }
+.item .content { width: min(45vw, 550px); position: absolute; top: 50%; left: 10%; transform: translateY(-50%); color: white; text-shadow: 0 4px 10px rgba(0,0,0,0.9); opacity: 0; display: none; }
+.item:nth-child(2) .content { display: block; animation: showContent 0.75s ease-in-out 0.3s forwards; }
+@keyframes showContent { from { filter: blur(10px); transform: translateY(calc(-50% + 50px)); opacity: 0; } to { filter: blur(0); transform: translateY(-50%); opacity: 1; } }
+.item .content .title { font-size: 3.5rem; text-transform: uppercase; color: var(--primary); margin-bottom: 15px; line-height: 1; }
+.nav-slider { position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%); z-index: 100; display: flex; }
+.nav-slider .btn { background: rgba(255,255,255,0.1); color: white; padding: 15px; border-radius: 50%; cursor: pointer; margin: 0 15px; font-size: 1.8rem; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.2); transition: 0.3s; }
+.nav-slider .btn:hover { background: var(--primary); color: black; }
+
+/* --- NOU: SLIDER LOGOS (ANIMACIÓ INFINITA) --- */
+.logo-slider-section {
+  background: var(--dark);
+  padding: 4rem 0;
+  overflow: hidden;
+  border-top: 1px solid #1a1a1a;
+  border-bottom: 1px solid #1a1a1a;
+  display: flex;
+}
+
+.logo-track {
+  display: flex;
+  width: calc(250px * 10);
+  animation: scrollLogos 20s linear infinite;
+}
+
+.logo-slide {
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-slide span {
+  color: white;
+  font-weight: 800;
+  font-size: 1.2rem;
+  opacity: 0.6;
+  letter-spacing: 2px;
+}
+
+@keyframes scrollLogos {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-250px * 5)); }
+}
+
+/* --- SOBRE NOSALTRES I FOOTER --- */
+.about { padding: 8rem 0; background: var(--dark); }
+.about-text { max-width: 800px; margin: 0 auto; text-align: center; }
+.about h2 { color: var(--primary); margin-bottom: 2rem; font-size: 2.5rem; }
+
+/* FOOTER DEFINITIU (NET) */
+.footer {
+    z-index: 1;
+    --footer-background: #0a0a0a; 
+    --bubble-color: #28e100;      
+    display: block;
+    position: relative;
+    margin-top: 5rem; /* Reduïm espai perquè no quedi tan lluny */
+    min-height: 12rem;
+    background: var(--footer-background);
+    width: 100%;
+}
+
+.footer .bubbles {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1rem;
+    background: var(--bubble-color);
+    filter: url("#blob");
+}
+
+.footer .bubble {
+    position: absolute;
+    left: var(--position, 50%);
+    background: var(--bubble-color);
+    border-radius: 100%;
+    animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s),
+               bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
+    transform: translate(-50%, 100%);
+}
+
+.footer-content {
+    z-index: 2;
+    position: relative;
+    padding: 3rem 2rem;
+    background: var(--footer-background);
+    color: #F5F7FA;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-sections {
+    display: flex;
+    justify-content: center;
+    gap: 10rem; /* Més separació entre columnes */
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 2rem;
+}
+
+.footer-sections b {
+    display: block;
+    color: var(--bubble-color);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.footer-sections a, .footer-sections p {
+    display: block;
+    color: #ccc;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    font-style: normal;
+}
+
+.footer-bottom {
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 2rem;
+    font-size: 0.8rem;
+}
+
+/* REUTILITZEM LES ANIMACIONS QUE JA TENIES */
+@keyframes bubble-size {
+    0%, 75% { width: var(--size, 4rem); height: var(--size, 4rem); }
+    100% { width: 0rem; height: 0rem; }
+}
+@keyframes bubble-move {
+    0% { bottom: -4rem; }
+    100% { bottom: var(--distance, 10rem); }
+}
+/* Responsive per a mòbils */
+@media (max-width: 768px) {
+  .card { flex-direction: column; text-align: center; }
+  nav ul { display: none; }
+}
+/* --- SLIDER LOGOS FONS BLANC --- */
+.logo-slider-white {
+  background: #ffffff; /* Fons blanc sol·licitat */
+  padding: 3rem 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.logo-track {
+  display: flex;
+  width: calc(250px * 10);
+  animation: scrollLogos 25s linear infinite;
+}
+
+.logo-slide {
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-slide span {
+  color: #333333; /* Color del text o logos sobre fons blanc */
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Animació de desplaçament */
+@keyframes scrollLogos {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-250px * 5)); }
+}
+/* --- ADAPTACIÓ SECCIÓ INMERSIVA ENGIX (CORREGIT) --- */
+
+.intro-section {
+  text-align: center;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--dark);
+}
+
+.intro-heading {
+  font-size: 4rem;
+  font-weight: 800;
+  color: white;
+}
+.intro-heading span { color: var(--primary); }
+
+.content-section {
+  --scroll-length: 1.5;
+  height: calc( var(--scroll-length) * 100vh );
+  width: 100%;
+  position: relative;
+  background: var(--dark);
+}
+
+.content-section .content .subheading, 
+.content-section .content .paragraph {
+  opacity: calc( 1 + var(--viewport-y) );
+}
+
+.figure {
+  --scale: calc(.8 + (.2 * var(--scroll-length) * var(--visible-y)));
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  display: block; 
+  overflow: hidden;
+  will-change: transform;
+  transform: scale(var(--scale));
+  z-index: 1;
+}
+
+.figure:before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5); 
+  opacity: calc( var(--visible-y) );
+}
+
+.figure > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: transform;
+  transform: scale(calc(1 / var(--scale)));
+}
+
+.content {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  max-width: 45em;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  color: white;
+  padding: 4em;
+  z-index: 5; /* Pugem el z-index */
+  pointer-events: none;
+}
+
+/* CANVIEM .header PER .content-header PER EVITAR CONFLICTES */
+.content > .content-header {
+  grid-row: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  /* Reset de propietats del header fix */
+  position: relative !important;
+  background: transparent !important;
+  width: auto !important;
+  padding: 0 !important;
+}
+
+.content > .paragraph {
+  grid-row: 2 / 3;
+  line-height: 1.6;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  max-width: 30em;
+}
+
+.heading {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin: 0;
+  line-height: 1.1;
+  color: var(--primary) !important; /* Forcem el verd */
+}
+
+.subheading {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: .5em;
+  color: #ccc;
+}
+
+/* Efecte de lletres que apareixen (Splitting) */
+.char {
+  display: inline-block;
+  opacity: calc(1 + ((var(--viewport-y) * 1.5) - var(--char-percent)));
+}
+
+/* Ajust per al slider de logos blanc (el que volies abans) */
+.logo-slider-white {
+  background: #ffffff;
+  padding: 4rem 0;
+  display: flex;
+  overflow: hidden;
+}
+.logo-slider-white span {
+  color: #0a0a0a;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+/* --- NOU CARRUSEL 3D PROJECTES --- */
+#project-app {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    overflow: hidden;
+}
+
+.slides {
+    display: grid;
+    perspective: 1000px;
+}
+
+.slides > .slide {
+    grid-area: 1 / -1;
+}
+
+.slides > button {
+    appearance: none;
+    background: transparent;
+    border: none;
+    color: var(--primary); /* Verd ENGIX */
+    position: absolute;
+    font-size: 5rem;
+    width: 5rem;
+    height: 5rem;
+    top: 40%;
+    transition: all 0.3s;
+    opacity: 0.5;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.slides > button:hover { opacity: 1; transform: scale(1.2); }
+.slides > button:first-child { left: -25vw; }
+.slides > button:last-child { right: -25vw; }
+
+.slideContent {
+    width: 40vw;
+    height: 25vw;
+    min-width: 300px;
+    min-height: 200px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease-out, opacity 0.5s;
+    opacity: 0.3;
+    display: grid;
+    align-content: center;
+    transform-style: preserve-3d;
+    transform: perspective(1000px) translateX(calc(100% * var(--offset))) rotateY(calc(-45deg * var(--dir)));
+}
+
+.slide[data-active] .slideContent {
+    opacity: 1;
+    transform: perspective(1000px);
+}
+
+.slideContentInner {
+    transform: translateZ(4rem);
+    padding: 2rem;
+    color: white;
+    text-shadow: 0 0.5rem 2rem rgba(0,0,0,0.8);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.slide[data-active] .slideContentInner { opacity: 1; }
+
+.slideTitle { font-size: 2.5rem; text-transform: uppercase; font-weight: 900; margin: 0; color: var(--primary); }
+.slideSubtitle { font-size: 1.2rem; margin-bottom: 1rem; font-weight: 400; }
+.slideDescription { font-size: 0.9rem; max-width: 300px; line-height: 1.4; opacity: 0.8; }
+
+.slideBackground {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.8s;
+    pointer-events: none;
+    filter: blur(20px) brightness(0.3);
+}
+
+.slide[data-active] .slideBackground { opacity: 0.4; }
+
+#project-app {
+    position: relative;
+    z-index: 10; /* Per sobre del fons */
+    min-height: 500px;
+    width: 100%;
+    margin-top: -50px; /* Ajust per apropar-lo al títol */
+}
+
+.slides {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 400px;
+}
+
+#project-app {
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--dark);
+    overflow: hidden;
+    perspective: 2000px; /* Augmentem la profunditat */
+}
+
+.slides {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    place-items: center;
+    position: relative;
+    transform-style: preserve-3d; /* CRUCIAL per al 3D */
+}
+
+.slide {
+    grid-area: 1 / -1;
+    width: 60vw;
+    height: 40vh;
+    max-width: 700px;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    
+    /* El moviment 3D depèn d'aquestes variables que React calcula */
+    transform: 
+        perspective(2000px) 
+        translateX(calc(100% * var(--offset))) 
+        rotateY(calc(-45deg * var(--dir)))
+        translateZ(calc(-200px * var(--abs-offset))); /* Les del fons s'allunyen */
+}
+
+/* Slide activa (la del centre) */
+.slide[data-active] {
+    opacity: 1;
+    transform: perspective(2000px) translateX(0) rotateY(0deg) translateZ(0);
+    z-index: 10;
+}
+
+/* Slides laterals */
+.slide:not([data-active]) {
+    opacity: 0.6;
+    filter: blur(2px) grayscale(0.5);
+    pointer-events: none;
+}
+
+/* EL CONTINGUT PRINCIPAL */
+.slideContent {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    
+    /* Efecte Tilt */
+    --x: calc(var(--px) - 0.5);
+    --y: calc(var(--py) - 0.5);
+    transform: perspective(1000px) rotateY(calc(var(--x) * 40deg)) rotateX(calc(var(--y) * -40deg));
+    
+    transform-style: preserve-3d; /* Obligatori per veure profunditat */
+    transition: transform 0.15s ease-out;
+}
+
+/* EL REFLEX (Brillantor) */
+.slideShadow {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    border-radius: 10px;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.15) 0%,
+        rgba(255, 255, 255, 0) 50%,
+        rgba(0, 0, 0, 0.2) 100%
+    );
+    /* El reflex es mou inversament al ratolí */
+    opacity: calc(0.5 + var(--y)); 
+    pointer-events: none;
+}
+
+/* EL TEXT "FLOTANT" (Efecte Parallax) */
+.slideContentInner {
+    padding: 2.5rem;
+    position: relative;
+    z-index: 2;
+    transform-style: preserve-3d;
+    
+    /* Això fa que el text es separi 80px de la foto cap a l'usuari */
+    transform: translateZ(80px) translateY(0); 
+    text-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.slideTitle {
+    font-size: 3rem;
+    font-weight: 900;
+    margin: 0;
+    color: var(--primary);
+    /* El títol fins i tot es pot moure una mica més */
+    transform: translateZ(20px); 
+}
+
+/* Quan el ratolí surt, torna a lloc suaument */
+.slide:not(:hover) .slideContent {
+    transition: transform 0.5s ease;
+    transform: perspective(1000px) rotateY(0) rotateX(0);
+}
+.slides > button {
+    position: absolute;
+    z-index: 100;
+    background: none;
+    border: none;
+    color: var(--primary);
+    font-size: 4rem;
+    cursor: pointer;
+    transition: 0.3s;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.slides > button:hover { scale: 1.2; text-shadow: 0 0 15px var(--primary); }
+.slides > button:first-child { left: 10%; }
+.slides > button:last-child { right: 10%; }
+
+/* PARTNERS SLIDER AMB FONS BLANC */
+.partners-slider {
+    padding: 100px 0;
+    background-color: #ffffff; /* Fons blanc pur */
+    overflow: hidden;
+    border-top: 1px solid #eeeeee;
+}
+
+.section-title-small {
+    text-align: center;
+    font-size: 1rem;
+    color: #333333; /* Text fosc per a fons blanc */
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 60px;
+    font-weight: 700;
+}
+
+.logos-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    /* Degradat transparent als costats per a fons blanc */
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.logos-track {
+    display: flex;
+    width: calc(250px * 10);
+    animation: scrollLogos 20s linear infinite; /* Una mica més ràpid */
+}
+
+.logos-group {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+}
+
+.logos-group i {
+    font-size: 3.5rem;
+    color: #222222; /* Icones gairebé negres */
+    opacity: 0.6;
+    transition: all 0.3s ease;
+    padding: 0 40px;
+}
+
+/* Efecte en passar el ratolí */
+.logos-group i:hover {
+    opacity: 1;
+    color: #28e100; /* El teu verd corporatiu Engix */
+    transform: scale(1.1);
+}
+
+@keyframes scrollLogos {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+/* ================================================= */
+/* EFECTE CODED-TEXT PER AL MENÚ (ENGIX TECH STYLE)  */
+/* ================================================= */
+
+/* 1. Importem la font per si no la tenies a dalt */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+/* 2. Estil base per als enllaços amb l'efecte */
+.codedText {
+    font-family: 'Share Tech Mono', monospace !important;
+    letter-spacing: 1px;
+    display: inline-block;
+    transition: all 0.1s ease;
+    /* Evitem que el text salti al canviar de caràcters */
+    min-width: 80px; 
+    text-align: center;
+}
+
+/* 3. Estil específic quan el ratolí està a sobre (Hover) */
+/* El JS de GSAP ja canviarà el fons, però aquí definim el tacte visual */
+nav ul li a.codedText:hover {
+    color: #000 !important; /* Text negre sobre el fons verd que posarà el JS */
+    border-radius: 2px;
+}
+
+/* 4. Ajust especial per al botó de Contacte (el que és verd) */
+.btn-nav.codedText {
+    background-color: var(--primary);
+    color: #000 !important;
+    padding: 8px 18px !important;
+    border-radius: 2px;
+    font-weight: 600;
+}
+
+/* 5. Quan fas hover al botó de contacte, podem fer que s'il·lumini més */
+.btn-nav.codedText:hover {
+    box-shadow: 0 0 15px rgba(40, 225, 0, 0.4);
+}
